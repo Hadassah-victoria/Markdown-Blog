@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Markdown Blog</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+    
+
+</head>
+
+<body>
+    <!-- Cover Page -->
+    <div id="coverPage" class="cover-page">
+        <div class="cover-content">
+            <h1 class="cover-title">
+                <i class="fas fa-edit"></i> Markdown Blog
+            </h1>
+            <p class="cover-subtitle">Write, Preview, and Publish your thoughts in Markdown</p>
+            <button class="start-button" onclick="startApp()">
+                <i class="fas fa-rocket"></i> Start Writing
+            </button>
+        </div>
+    </div>
+
+    <!-- Main Application -->
+    <div id="mainApp" class="main-app">
+        <!-- Header -->
+        <header class="app-header">
+            <div class="container-fluid">
+                <div class="row align-items-center">
+                    <div class="col">
+                        <h1 class="app-title">
+                            <i class="fas fa-edit text-primary"></i> Markdown Blog
+                        </h1>
+                    </div>
+                    <div class="col-auto">
+                        <button class="btn btn-primary" onclick="createNewPost()">
+                            <i class="fas fa-plus"></i> New Post
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <div class="container-fluid h-100">
+            <div class="row h-100">
+                <!-- Sidebar - Your Posts -->
+                <div class="col-lg-3 col-md-4 p-0">
+                    <div class="sidebar">
+                        <div class="sidebar-header">
+                            <h5 class="mb-0">
+                                <i class="fas fa-folder-open text-primary"></i> Your Posts
+                            </h5>
+                        </div>
+                        <div id="postsList">
+                            <div class="empty-state">
+                                <i class="fas fa-file-alt"></i>
+                                <p>No posts yet</p>
+                                <small>Start writing your first blog post!</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Editor Section -->
+                <div class="col-lg-4 col-md-8 col-sm-12 p-0">
+                    <div class="editor-section">
+                        <div class="section-header">
+                            <div class="section-title">
+                                
+                            </div>
+                            <button class="btn btn-success btn-sm" onclick="saveCurrentPost(event)">
+                                <i class="fas fa-save"></i> Save
+                            </button>
+                        </div>
+                        <div class="p-3">
+                            <input type="text" id="titleInput" class="form-control title-input"
+                                placeholder="Enter your post title..." />
+                        </div>
+                        <textarea id="editorTextarea" class="editor-textarea" placeholder="# Welcome to Markdown Blog!
+
+Start writing your blog post here. You can use **markdown** syntax to format your content.
+
+## Features
+
+- **Bold text** and *italic text*  
+- Create lists:
+  - Bullet points
+  - Numbered lists
+- Add `inline code` snippets
+- Create [links](https://example.com)
+- Add blockquotes:
+
+> This is a blockquote. Perfect for highlighting important information.
+
+### Code Blocks
+
+```javascript
+function hello() {
+  console.log('Hello, world!');
+}
+```
+
+Happy writing! 🚀"></textarea>
+                    </div>
+                </div>
+
+                <!-- Preview Section -->
+                <div class="col-lg-5 col-md-12 p-0">
+                    <div class="preview-section">
+                        <div class="section-header">
+                            <div class="section-title">
+                                <i class="fas fa-eye text-info"></i> Preview
+                            </div>
+                        </div>
+                        <div class="preview-content">
+                            <div id="previewContent" class="markdown-content">
+                                <div class="empty-state">
+                                    <i class="fas fa-eye"></i>
+                                    <p>Preview will appear here</p>
+                                    <small>Start typing in the editor to see your markdown rendered</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- External Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dompurify@2.4.7/dist/purify.min.js"></script>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
